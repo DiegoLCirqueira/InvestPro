@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+/* Suas cores personalizadas agora entram aqui no CSS */
+@theme {
+  --color-brand-bg: #0b0e14;
+  --color-brand-card: #161b22;
+  --color-brand-primary: #10b981;
+  --color-brand-secondary: #3b82f6;
+  --color-brand-danger: #ef4444;
+}
+
+body {
+  background-color: var(--color-brand-bg);
+  color: white;
+  -webkit-font-smoothing: antialiased;
+}
