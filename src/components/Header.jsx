@@ -48,7 +48,7 @@ export function Header() {
             </div>
           </div>
           
-          <div className="w-11 h-11 bg-linear-to-br from-brand-card to-gray-900 border border-gray-700 rounded-2xl flex items-center justify-center text-brand-primary shadow-lg shadow-black/20 group cursor-pointer hover:border-brand-primary/50 transition-colors">
+          <div className="w-11 h-11 bg-linear-to-br to-gray-900 border border-gray-700 rounded-2xl flex items-center justify-center text-brand-primary shadow-lg shadow-black/20 group cursor-pointer hover:border-brand-primary/50 transition-colors">
             <User size={22} className="group-hover:scale-110 transition-transform" />
           </div>
         </div>

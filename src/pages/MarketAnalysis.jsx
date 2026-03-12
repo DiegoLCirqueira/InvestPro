@@ -20,7 +20,7 @@ export function MarketAnalysis() {
         {INDEX_DATA.map((index) => (
           <div 
             key={index.name} 
-            className="bg-brand-card p-6 rounded-2xl border border-gray-800 hover:border-brand-primary/30 transition-colors cursor-pointer"
+            className="p-6 rounded-2xl border border-gray-800 hover:border-brand-primary/30 transition-colors cursor-pointer"
           >
             <h4 className="text-gray-400 text-xs font-bold uppercase tracking-wider mb-4">
               {index.name}
@@ -41,7 +41,7 @@ export function MarketAnalysis() {
         ))}
       </div>
 
-      <div className="flex-1 bg-brand-card p-6 rounded-2xl border border-gray-800 flex flex-col min-h-0">
+      <div className="flex-1 p-6 rounded-2xl border border-gray-800 flex flex-col min-h-0">
         <div className="flex justify-between items-center mb-6">
           <h3 className="text-lg font-bold">Composição e Performance</h3>
           <span className="text-[10px] text-gray-500 font-bold uppercase tracking-[0.2em] bg-gray-900 px-3 py-1 rounded-full border border-gray-800">
