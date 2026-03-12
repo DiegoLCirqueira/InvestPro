@@ -1,63 +1,37 @@
-import {useState} from "react";
+import { useState } from "react";
 import { Sidebar } from "./components/Sidebar.jsx";
 import { Header } from "./components/Header.jsx";
-import { SummaryCard } from "./components/SummaryCard.jsx";
-import { Assets } from "./components/Assets.jsx";
-import { EvolutionChart } from "./components/EvolutionChart.jsx";
-import { MOCK_DATA } from "./data/investments.js";
+import { Footer } from "./components/Footer.jsx";
+
+// Importando as páginas da nova pasta
+import { Dashboard } from "./pages/Dashboard.jsx";
+import { MarketAnalysis } from "./pages/MarketAnalysis.jsx";
 
 function App() {
-  const [days, setDays] = useState(30);
-
-  const filteredHistory = MOCK_DATA.history.slice(-days);
+  // Estado para controlar qual tela mostrar
+  const [currentPage, setCurrentPage] = useState("dashboard");
 
   return (
-    <div className="min-h-screen bg-brand-bg flex text-white" font-sans>
-      <Sidebar />
+    <div className="h-screen bg-brand-bg flex text-white font-sans overflow-hidden">
+      {/* Passe o estado para a Sidebar conseguir trocar as páginas */}
+      <Sidebar onNavigate={setCurrentPage} activePage={currentPage} />
       
-      <main className="ml-64 p-10 flex-1 max-w-[1600px]">
-        <Header />
+      <main className="ml-64 flex-1 flex justify-center">
         
-        {/* Layout em Grid: 2 colunas no desktop */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="w-full max-w-400 p-10 flex flex-col h-full justify-between">
+          <Header />
           
-          {/* Coluna Principal (Esquerda) */}
-          <div className="lg:col-span-2 space-y-6">
-            <SummaryCard 
-              balance={MOCK_DATA.user.balance} 
-              change={MOCK_DATA.user.change} 
-            />
-
-            {/* Container do Gr[afico com Botoes de Filtro */}
-            <div className='bg-brand=card p-6 rounded-2xl border border-gray-800'>
-              <div className='flex justfbetween items-center mb-6'>
-                <h3 className='text-lg font-bold'>Evolução do Patrimônio</h3>
-
-                {/* Botoes com Tailwind dinamico */}
-                <div classNmae='flex bg-gray-900 p-1 rounded-lg border border-gray-800'>
-                  <button 
-                    onClick={() => setDays(7)}
-                    className={`px-4 py-1.5 rounded-md text-xs font-bold transition-all ${days === 7 ? 'bg-brand-primary text-black' : 'text-gray-400 hover:text-white'}`}
-                  >
-                    7D
-                  </button>
-                  <button
-                    onClick={() => setDays(30)}
-                    className ={`px-4 py-1.5 rounded-md text-xs dontd-bold transition-all ${days === 30 ? 'bg-brand-primary text-black' : 'text-gray-400 hover:text-white'}`}
-                  >
-                    30D
-                    </button>
-                  </div>
-                </div>
-
-                {/* Passamos os dados filtrados como Prop */}
-                <EvolutionChart data={filteredHistory} />
-              </div>
-            </div>
-            <div className='lg:col-span-1'>
-              <Assets />
-            </div>
+          {/* Área de Conteúdo Dinâmico */}
+          <div className="flex-1 min-h-0 mb-8 flex flex-col">
+            {currentPage === "dashboard" ? (
+              <Dashboard />
+            ) : (
+              <MarketAnalysis />
+            )}
           </div>
+
+          <Footer />
+        </div>
       </main>
     </div>
   );

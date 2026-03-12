@@ -2,10 +2,10 @@ import { MOCK_DATA } from '../data/investments';
 
 export function Assets() {
   return (
-    <div className="bg-brand-card rounded-2xl border border-gray-800 p-6 mt-6">
+    <div className="rounded-2xl border border-gray-800 p-6 h-full">
       <h3 className="text-lg font-bold mb-4">Seus Ativos</h3>
       
-      <div className="space-y-4">
+      <div className="space-y-4 flex-1 overflow-y-auto pr-2 custom-scrollbar">
         {/* O .map() transforma cada objeto de dado em um elemento visual */}
         {MOCK_DATA.assets.map((asset) => (
           <div key={asset.id} className="flex items-center justify-between p-3 hover:bg-gray-800/50 rounded-xl transition-colors">

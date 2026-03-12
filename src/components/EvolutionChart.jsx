@@ -6,7 +6,7 @@ export function EvolutionChart({ data }) {
     }
 
   return (
-    <div className="h-[250px] w-full">   
+    <div className="h-62.5 w-full">   
       <ResponsiveContainer width="100%" height="100%">
         {/* 4. Mude de MOCK_DATA.history para apenas 'data' */}
         <AreaChart data={data}>
