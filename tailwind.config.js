@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {
+      // Adicionando a escala de espaçamento para habilitar o '75'
+      spacing: {
+        '75': '18.75rem', // Isso habilita h-75, min-h-75, w-75, etc.
+      },
       colors: {
         brand: {
           bg: "#0b0e14",
