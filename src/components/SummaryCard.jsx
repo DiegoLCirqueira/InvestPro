@@ -7,7 +7,7 @@ export function SummaryCard({ balance, change }) {
   }).format(balance);
 
   return (
-    <div className="bg-brand-card p-6 rounded-2xl border border-gray-800 shadow-xl">
+    <div className="p-6 rounded-2xl border border-gray-800 shadow-xl">
       <p className="text-gray-400 text-sm font-medium mb-1">Valor Total do Portfólio</p>
       
       <div className="flex items-end gap-3 mb-6">
