@@ -5,7 +5,13 @@ export const MOCK_DATA = {
     balance: 175450.32,
     change: 15.28
   },
-  assets: [ /* seus assets aqui */ ],
+  assets: [
+    { id: 1, name: "Bitcoin", ticker: "BTC", type: "CR", value: 85400.00, change: 5.2 },
+    { id: 2, name: "Ethereum", ticker: "ETH", type: "CR", value: 25000.00, change: -1.8 },
+    { id: 3, name: "Vale ON", ticker: "VALE3", type: "AC", value: 15200.50, change: 0.5 },
+    { id: 4, name: "Itaú Unibanco", ticker: "ITUB4", type: "AC", value: 12000.00, change: 1.2 },
+    { id: 5, name: "Tesouro Selic", ticker: "SELIC", type: "RF", value: 37849.82, change: 0.1 },
+  ],
   history: [
     // COMEÇO: Lá embaixo (O "Vindo de baixo")
     { date: '11/02', value: 20000 }, { date: '12/02', value: 25000 },
