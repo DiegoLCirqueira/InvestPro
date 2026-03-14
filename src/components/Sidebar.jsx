@@ -8,6 +8,10 @@ import {
   ArrowLeftRight 
 } from "lucide-react";
 
+/**
+ * Barra lateral de navegação. Cada item.id deve corresponder a um case em App.renderPage().
+ * onNavigate: callback chamado ao clicar em um item; activePage: ID da aba atual.
+ */
 export function Sidebar({ onNavigate, activePage }) {
   const menuItems = [
     { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },

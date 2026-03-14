@@ -4,6 +4,7 @@ import { EvolutionChart } from "../components/EvolutionChart.jsx";
 import { Assets } from "../components/Assets.jsx";
 import { MOCK_DATA } from "../data/investments.js";
 
+/** Página principal: saldo, gráfico de evolução e lista de ativos */
 export function Dashboard() {
   const [days, setDays] = useState(30);
   const filteredHistory = MOCK_DATA.history.slice(-days);
@@ -21,6 +22,7 @@ export function Dashboard() {
           <div className="flex justify-between items-center mb-6">
             <h3 className="text-lg font-bold">Evolução do Patrimônio</h3>
 
+            {/* Botões 7D/30D filtram o histórico exibido no gráfico */}
             <div className="flex bg-gray-900 p-1 rounded-lg border border-gray-800">
               <button 
                 onClick={() => setDays(7)}

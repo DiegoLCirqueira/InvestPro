@@ -1,5 +1,6 @@
 import { MOCK_DATA } from '../data/investments';
 
+/** Lista de ativos do usuário no Dashboard. Dados vêm de MOCK_DATA.assets */
 export function Assets() {
   return (
     <div className="rounded-2xl border border-gray-800 p-6 h-full">

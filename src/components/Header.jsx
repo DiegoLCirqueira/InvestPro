@@ -1,11 +1,16 @@
 import { Bell, User, CalendarDays } from 'lucide-react';
 
-export function Header() {
-  // Lógica simples para saudação profissional
+/**
+ * Header da aplicação. Recebe currentPage para adaptar o conteúdo.
+ * No Dashboard: mostra saudação (Bom dia/tarde/noite), data e resumo do portfólio.
+ * Nas demais abas: mostra apenas a data formatada.
+ */
+export function Header({ currentPage = "dashboard" }) {
+  const isDashboard = currentPage === "dashboard";
+  
   const hour = new Date().getHours();
   const greeting = hour < 12 ? "Bom dia" : hour < 18 ? "Boa tarde" : "Boa noite";
   
-  // Data formatada para dar um toque de terminal financeiro
   const dateStr = new Date().toLocaleDateString('pt-BR', { 
     weekday: 'long', 
     day: '2-digit', 
@@ -22,16 +27,20 @@ export function Header() {
           </span>
         </div>
         
-        <h2 className="text-3xl font-extrabold text-white tracking-tight">
-          {greeting}, <span className="text-transparent bg-clip-text bg-linear-to-r from-white to-gray-500">Diego</span>
-        </h2>
-        
-        <div className="flex items-center gap-2">
+        {/* Saudação e resumo do portfólio só aparecem no Dashboard */}
+        {isDashboard ? (
+          <>
+            <h2 className="text-3xl font-extrabold text-white tracking-tight">
+              {greeting}, <span className="text-transparent bg-clip-text bg-linear-to-r from-white to-gray-500">Diego</span>
+            </h2>
+            <div className="flex items-center gap-2">
           <span className="w-1.5 h-1.5 rounded-full bg-brand-primary animate-pulse"></span>
           <p className="text-gray-500 text-xs font-medium">
             Seu portfólio rendeu <span className="text-brand-primary">+2.28%</span> nas últimas 24h.
           </p>
         </div>
+          </>
+        ) : null}
       </div>
 
       <div className="flex items-center gap-5">

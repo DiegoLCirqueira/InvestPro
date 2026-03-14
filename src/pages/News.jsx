@@ -1,8 +1,8 @@
-// src/pages/News.jsx
 import { NEWS_DATA } from "../data/news";
-import { TrendingUp, Clock } from "lucide-react";
+import { Clock } from "lucide-react";
 
-export function News() { // Mudamos de "default" para "export function"
+/** Página de notícias do mercado. Dados vêm de src/data/news.js */
+export function News() {
   return (
     <div className="flex-1">
       <header className="mb-8">

@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Suas cores personalizadas agora entram aqui no CSS */
+/* Variáveis de tema (Tailwind v4). Use como bg-brand-primary, text-brand-secondary etc. */
 @theme {
   --color-brand-bg: #0b0e14;
   /*--color-brand-card: #161b22;*/
@@ -13,4 +13,13 @@ body {
   background-color: var(--color-brand-bg);
   color: white;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar oculta globalmente; scroll via mouse/trackpad continua funcionando */
+* {
+  scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
 }

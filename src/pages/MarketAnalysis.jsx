@@ -1,9 +1,11 @@
+/** Índices de mercado exibidos nos cards superiores */
 const INDEX_DATA = [
   { name: "IBOVESPA", value: "118.247", change: "+1.24%", pts: "+1.452 pts", trend: "up" },
   { name: "S&P 500", value: "4.567", change: "+0.87%", pts: "+39.2 pts", trend: "up" },
   { name: "NASDAQ", value: "14.234", change: "-0.45%", pts: "-64.8 pts", trend: "down" }
 ];
 
+/** Ativos da tabela de composição e performance (dados mock) */
 const DETAILED_ASSETS = [
   { symbol: "VALE3", name: "Vale S.A.", price: "R$ 68,42", change: "+1.2%", volume: "1.2B", sentiment: "Oportunidade" },
   { symbol: "PETR4", name: "Petrobras", price: "R$ 36,15", change: "-0.5%", volume: "980M", sentiment: "Neutral" },
@@ -11,6 +13,7 @@ const DETAILED_ASSETS = [
   { symbol: "BBDC4", name: "Bradesco", price: "R$ 14,25", change: "-1.1%", volume: "520M", sentiment: "Risco" },
 ];
 
+/** Página de análise de mercado: índices e tabela de ativos */
 export function MarketAnalysis() {
   return (
     <div className="flex-1 flex flex-col min-h-0 animate-in fade-in duration-500">
@@ -63,9 +66,9 @@ export function MarketAnalysis() {
             <tbody>
               {DETAILED_ASSETS.map((asset) => (
                 <tr key={asset.symbol} className="bg-gray-900/40 hover:bg-gray-800/60 transition-colors group cursor-pointer">
-                  <td className="py-3 pl-4 rounded-l-xl border-y border-l border-transparent group-hover:border-gray-700">
+                  <td className="py-3 pl-4 rounded-l-xl border-y border-l border-transparent group-hover:border-brand-primary/30">
                     <div className="flex flex-col">
-                      <span className="font-bold text-sm text-white">{asset.symbol}</span>
+                      <span className="font-bold text-sm text-white group-hover:text-brand-primary transition-colors">{asset.symbol}</span>
                       <span className="text-[10px] text-gray-500 font-medium">{asset.name}</span>
                     </div>
                   </td>
@@ -74,7 +77,8 @@ export function MarketAnalysis() {
                     {asset.change}
                   </td>
                   <td className="py-3 text-sm text-gray-400 tabular-nums">{asset.volume}</td>
-                  <td className="py-3 pr-4 rounded-r-xl text-right border-y border-r border-transparent group-hover:border-gray-700">
+                  <td className="py-3 pr-4 rounded-r-xl text-right border-y border-r border-transparent group-hover:border-brand-primary/30">
+                    {/* Badge de sentimento: Oportunidade (verde), Risco (vermelho), Neutral (cinza) */}
                     <span className={`text-[9px] font-black px-2 py-1 rounded-md uppercase tracking-tighter ${
                       asset.sentiment === 'Oportunidade' ? 'bg-brand-primary/10 text-brand-primary' : 
                       asset.sentiment === 'Risco' ? 'bg-red-500/10 text-red-500' : 'bg-gray-700/30 text-gray-400'

@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
 
+/** Gráfico de área da evolução do patrimônio. data: array de { date, value } */
 export function EvolutionChart({ data }) {
-  // Estado para garantir que o gráfico só monte após o componente carregar no navegador
+  /* Evita erro de hidratação do Recharts: só monta o gráfico após o DOM estar pronto */
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {

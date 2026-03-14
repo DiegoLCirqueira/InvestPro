@@ -1,5 +1,6 @@
 import { TrendingUp } from 'lucide-react';
 
+/** Card de resumo: valor total do portfólio e transações recentes. balance e change em BRL */
 export function SummaryCard({ balance, change }) {
   const formattedBalance = new Intl.NumberFormat('pt-BR', {
     style: 'currency',

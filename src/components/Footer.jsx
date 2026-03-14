@@ -1,11 +1,9 @@
+/** Rodapé com links e informações da plataforma */
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    // Reduzi mt-20 para mt-2 (quase colado na grid) e pt-12 para pt-4
     <footer className="mt-auto border-t border-gray-800/50 pt-2 pb-2 px-6">
-      
-      {/* Diminuí mb-12 para mb-4 e o gap para 2 */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-2 mt-4 text-[10px]">
         <div className="space-y-1">
           <h4 className="text-white font-bold text-[11px] uppercase tracking-wider">InvestPro</h4>
