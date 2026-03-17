@@ -10,6 +10,7 @@ import { News } from "./pages/News.jsx";
 import { Recommendations } from "./pages/Recommendations.jsx";
 import { Diversification } from "./pages/Diversification.jsx";
 import { Transfers } from "./pages/Transfers.jsx";
+import { UserProfile } from "./pages/UserProfile.jsx";
 /**
  * Componente raiz da aplicação InvestPro.
  * Gerencia o estado da aba ativa e renderiza o layout principal.
@@ -35,6 +36,8 @@ function App() {
         return <Exchange />;
       case "transfers":
         return <Transfers />;
+      case "profile":
+        return <UserProfile onClose={() => setCurrentPage("dashboard")} />;
       default:
         return <Dashboard />;
     }
@@ -44,9 +47,9 @@ function App() {
     <div className="h-screen bg-brand-bg flex text-white font-sans overflow-hidden">
       <Sidebar onNavigate={setCurrentPage} activePage={currentPage} />
       
-      <main className="ml-64 flex-1 flex justify-center">
-        <div className="w-full max-w-350 p-10 flex flex-col h-full justify-between">
-          <Header currentPage={currentPage} />
+      <main className="ml-64 flex-1 flex justify-center px-4 md:px-6 lg:px-8">
+        <div className="w-full max-w-5xl lg:max-w-6xl py-6 md:py-8 lg:py-10 flex flex-col h-full justify-between">
+          <Header currentPage={currentPage} onNavigate={setCurrentPage} />
           
           {/* Área de conteúdo com scroll; min-h-0 evita overflow em layouts flex */}
           <div className="flex-1 min-h-0 mb-8 flex flex-col overflow-y-auto custom-scrollbar">
